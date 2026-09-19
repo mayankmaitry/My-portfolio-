@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank — Developer &amp; Designer</title>
+  <meta name="description" content="Mayank is a full-stack developer and designer building clean, modern, user-friendly web experiences." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Styles for the Work / Projects section (kept here so it works even without editing style.css) -->
+  <style>
+    .work { padding: clamp(56px, 10vw, 100px) clamp(16px, 5vw, 24px); background: #0A0A0A; color: #F5F5F5; }
+    .work__inner { max-width: 1100px; margin: 0 auto; }
+    .work .eyebrow { color: #8A8A8A; font-family: 'Inter', sans-serif; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 12px; }
+    .work__heading { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 42px); margin: 0 0 10px; }
+    .work__sub { color: #B0B0B0; font-family: 'Inter', sans-serif; margin: 0 0 40px; }
+    .work__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 24px; }
+
+    /* Static work cards (Project One/Two/Three markup) */
+    .work__card { background: #151515; border: 1px solid #262626; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; min-width: 0; }
+    .work__card:hover { transform: translateY(-6px); border-color: #3a3a3a; }
+    .work__thumb { width: 100%; aspect-ratio: 4 / 3; background: #1e1e1e; overflow: hidden; }
+    .work__image { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .work__body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .work__title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 18px; margin: 0; }
+    .work__desc { font-family: 'Inter', sans-serif; font-size: 14px; color: #B0B0B0; margin: 0; line-height: 1.5; flex: 1; }
+    .work__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
+    .tag { font-family: 'Inter', sans-serif; font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #1f1f1f; color: #C9C9C9; border: 1px solid #2c2c2c; }
+    .work__link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #F5F5F5; text-decoration: none; margin-top: auto; }
+    .work__link:hover { text-decoration: underline; }
+
+    /* JS-rendered project cards (unused by default but kept functional) */
+    .project-card { background: #151515; border: 1px solid #262626; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; min-width: 0; }
+    .project-card:hover { transform: translateY(-6px); border-color: #3a3a3a; }
+    .project-card__image { width: 100%; height: 190px; object-fit: cover; background: #1e1e1e; display: block; }
+    .project-card__body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .project-card__title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 18px; margin: 0; }
+    .project-card__desc { font-family: 'Inter', sans-serif; font-size: 14px; color: #B0B0B0; margin: 0; line-height: 1.5; flex: 1; }
+    .project-card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
+    .project-card__tag { font-family: 'Inter', sans-serif; font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #1f1f1f; color: #C9C9C9; border: 1px solid #2c2c2c; }
+    .project-card__link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #F5F5F5; text-decoration: none; margin-top: auto; }
+    .project-card__link:hover { text-decoration: underline; }
+    .work__empty { color: #8A8A8A; font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo">
+        <img src="photo_2026-09-17_20-04-48.jpg" alt="Site logo" class="nav__logo-img" width="36" height="36" />
+        Web Developer<span class="dot">.</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn--ghost nav__cta">Let's talk</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Hi, I'm Mayank</p>
+          <h1 class="hero__heading">
+            Developer<br />
+            &amp; Designer
+          </h1>
+          <p class="hero__sub">
+            I build modern, responsive and user-friendly websites
+            that bring ideas to life.
+          </p>
+          <div class="hero__actions">
+            <a href="#work" class="btn btn--solid">View my work</a>
+            <a href="#contact" class="btn btn--outline">Get in touch</a>
+          </div>
+        </div>
+
+        <div class="hero__media reveal reveal--delay">
+          <div class="hero__frame">
+            <img
+              src="IMG_20260917_203458.png"
+              alt="Portrait of Mayank, developer and designer, lit warmly against a dark background"
+              class="hero__image"
+              width="1000"
+              height="1200"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS BAR ============ -->
+    <section class="stats" aria-label="Highlights">
+      <div class="stats__inner">
+
+        <div class="stat">
+          <span class="stat__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="7" r="3.5" stroke="#0A0A0A" stroke-width="1.8"/><path d="M17.5 12.5c1.66 0 3 1.34 3 3v2" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5 4.3a3.5 3.5 0 0 1 0 6.4" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <span class="stat__number">30+</span>
+          <span class="stat__label">Happy Clients</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 9.5 8H4l4.5 4-2 7L12 15l5.5 4-2-7L20 8h-5.5L12 2Z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="stat__number">10+</span>
+          <span class="stat__label">Awards Won</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="4" width="17" height="13" rx="2" stroke="#0A0A0A" stroke-width="1.8"/><path d="M8 20h8M12 17v3" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <span class="stat__number">25+</span>
+          <span class="stat__label">Projects Done</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#0A0A0A" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="stat__number">2+</span>
+          <span class="stat__label">Years Experience</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4.5 12.5 9 17l10.5-11" stroke="#0A0A0A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="stat__number">98%</span>
+          <span class="stat__label">Satisfaction Rate</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ WORK / PROJECTS ============ -->
+    <section class="work" id="work">
+      <div class="work__inner">
+        <p class="eyebrow">Selected Work</p>
+        <h2 class="work__heading">Projects I've built</h2>
+
+        <div class="work__grid">
+
+          <article class="work__card">
+            <div class="work__thumb">
+              <img
+                src="mayank project 1.png"
+                alt="Screenshot of Project One"
+                class="work__image"
+                width="800"
+                height="600"
+              />
+            </div>
+            <div class="work__body">
+              <h3 class="work__title">Project One</h3>
+              <p class="work__desc">A modern restaurant website that provides an elegant digital presence, showcases the menu and services, and simplifies customer reservations and restaurant discovery.</p>
+              <div class="work__tags">
+                <span class="tag">MENU</span>
+                <span class="tag">RESERVATION</span>
+                <span class="tag">GALLERY</span>
+              </div>
+              <a href="https://project1codvx.netlify.app" class="work__link" target="_blank" rel="noopener">View Project →</a>
+            </div>
+          </article>
+
+          <article class="work__card">
+            <div class="work__thumb">
+              <img
+                src="mayank project 2.png"
+                alt="Screenshot of Project Two"
+                class="work__image"
+                width="800"
+                height="600"
+              />
+            </div>
+            <div class="work__body">
+              <h3 class="work__title">Project Two</h3>
+              <p class="work__desc">A modern gym website designed to showcase fitness programs, trainers, membership plans, and tools while helping users choose the right fitness journey.</p>
+              <div class="work__tags">
+                <span class="tag">PROGRAMS</span>
+                <span class="tag">MEMBERSHIP</span>
+                <span class="tag">BMI CALCULATOR</span>
+
+              </div>
+              <a href="https://project2codvx.netlify.app" class="work__link" target="_blank" rel="noopener">View Project →</a>
+            </div>
+          </article>
+
+          <article class="work__card">
+            <div class="work__thumb">
+              <img
+                src="mayank project 3.png"
+                alt="Screenshot of Project Three"
+                class="work__image"
+                width="800"
+                height="600"
+              />
+            </div>
+            <div class="work__body">
+              <h3 class="work__title">Project Three</h3>
+              <p class="work__desc">A modern café website designed to showcase specialty coffee, menu items, ambience, and simplify table reservations.</p>
+              <div class="work__tags">
+                <span class="tag">MENU</span>
+                <span class="tag">COFFEE</span>
+                <span class="tag">RESERVATION</span>
+
+              </div>
+              <a href="https://project3codvx.netlify.app" class="work__link" target="_blank" rel="noopener">View Project →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="about__card">
+
+        <div class="about__text">
+          <p class="eyebrow">About Me</p>
+          <h2 class="about__heading">
+            I design and code experiences
+            that make an impact.
+          </h2>
+          <p class="about__body">
+            I'm a passionate full-stack developer who loves creating
+            clean, functional and beautiful web experiences. I focus
+            on writing clean code and delivering projects that help
+            businesses grow.
+          </p>
+
+          <ul class="checklist">
+            <li><span class="check" aria-hidden="true">✓</span>Web Development</li>
+            <li><span class="check" aria-hidden="true">✓</span>Responsive Design</li>
+            <li><span class="check" aria-hidden="true">✓</span>UI/UX Design</li>
+            <li><span class="check" aria-hidden="true">✓</span>Problem Solving</li>
+          </ul>
+
+          <a href="#contact" class="btn btn--solid about__cta">Work with me</a>
+        </div>
+
+        <div class="about__media">
+          <span class="pill">2+ Years Of Experience</span>
+          <div class="about__ring" aria-hidden="true"></div>
+          <div class="about__frame">
+            <img src="file_000000001fc08211a13dfca2dcc8ddea.png"
+              alt="Mayank standing against a turquoise backdrop"
+              class="about__image"
+              width="900"
+              height="1100"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / FOOTER ============ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 class="contact__heading">Let's build something worth showing.</h2>
+        <a href="mailto:mayamkmaitry@7gmail.com" class="btn btn--solid contact__cta">mayamkmaitry@7gmail.com</a>
+
+        <div class="contact__details">
+          <a href="tel:8109598308" class="contact__link">📞 8109598308</a>
+          <a href="https://wa.me/918109598308" target="_blank" rel="noopener" class="contact__link">💬 WhatsApp</a>
+          <a href="https://instagram.com/web.dot_d" target="_blank" rel="noopener" class="contact__link">📸 @web.dot_d</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© 2026 Mayank. All rights reserved.</span>
+      <div class="footer__socials" aria-label="Social links">
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="https://instagram.com/web.dot_d" aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" aria-label="Twitter">Twitter</a>
+        <a href="https://wa.me/918109598308" aria-label="WhatsApp" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:8109598308" aria-label="Phone">📞 8109598308</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       PROJECTS — EASY UPDATE GUIDE
+       ============================================================
+       Whenever you finish a new project, just copy one block below
+       (from the opening { to the closing }, ) and fill in your info.
+       No other file needs to change — the card is built automatically.
+
+       Fields:
+         title       -> project name
+         desc        -> 1-2 line description
+         image       -> path/URL to a screenshot (e.g. "assets/project1.png")
+         link        -> live site URL or GitHub repo link
+         tags        -> array of short skill/tech labels
+  ============================================================ -->
+  <script>
+    const projects = [
+      {
+        title: "Project Name",
+        desc: "A short one or two line description of what this project does and the problem it solves.",
+        image: "assets/project-placeholder.png",
+        link: "#",
+        tags: ["HTML", "CSS", "JavaScript"]
+      }
+      // 👉 Add your next completed project here as a new { ... } block,
+      //    separated by a comma from the one above.
+    ];
+
+    function renderProjects() {
+      const grid = document.getElementById("projectsGrid");
+      if (!grid) return;
+
+      if (!projects.length) {
+        grid.innerHTML = '<p class="work__empty">Projects coming soon.</p>';
+        return;
+      }
+
+      grid.innerHTML = projects.map(p => `
+        <div class="project-card">
+          <img class="project-card__image" src="${p.image}" alt="${p.title} screenshot" loading="lazy" />
+          <div class="project-card__body">
+            <h3 class="project-card__title">${p.title}</h3>
+            <p class="project-card__desc">${p.desc}</p>
+            <div class="project-card__tags">
+              ${(p.tags || []).map(t => `<span class="project-card__tag">${t}</span>`).join("")}
+            </div>
+            <a class="project-card__link" href="${p.link}" target="_blank" rel="noopener">View project →</a>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    renderProjects();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
